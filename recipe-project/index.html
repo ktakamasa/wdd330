@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,20 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Recipe Search</title>
 </head>
+
 <body>
     <main>
-        <h1>Recipe Search</h1>
-        <p>Find over 2.3 million recipes!</p>
+        <div class="container">
+            <h1 class="main-heading">Recipe Search</h1>
+            <p class="main-description">Find over 2.3 million recipes!</p>
 
-        <form id="searchForm" name="searchbar">
-            <input id="searchInput" type="text" placeholder="Type a food or meal..." name="search">
-            <button id="searchButton" type="submit">Search</button>
-        </form>
+            <form id="searchForm">
+                <input id="searchInput" type="text" placeholder="Enter a food or meal..." name="search">
+                <button id="searchButton" type="submit">Search</button>
+            </form>
 
-        <div id="results"></div>
+            <div id="results"></div>
+        </div>
     </main>
 
     <footer>
@@ -25,4 +29,5 @@
     </footer>
     <script src="js/script.js" type="module"></script>
 </body>
+
 </html>

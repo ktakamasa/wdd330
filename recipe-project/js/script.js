@@ -32,6 +32,7 @@ function displayRecipes(data) {
         recipeCard.className = "recipe-card";
 
         const title = document.createElement("h2");
+        title.classList = "title"
         title.textContent = recipe.label;
 
         const image = document.createElement("img");
@@ -48,4 +49,5 @@ function displayRecipes(data) {
     });
 }
 
-document.querySelector("#searchForm").addEventListener("submit", searchRecipes);
+document.querySelector("#searchButton").addEventListener("click", searchRecipes);
+
