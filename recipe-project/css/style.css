@@ -44,11 +44,36 @@ div.container {
   margin: 0 auto;
 }
 
+div.main-head {
+  display: grid;
+  grid-template-columns: 100% 5%;
+}
+
 h1.main-heading {
   text-align: center;
   font-size: 3rem;
   /* color: ; */
   margin-bottom: 1rem;
+}
+
+span.favorite-icon,
+span.home-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.favorite-icon a,
+.home-icon a {
+  text-align: center;
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+}
+
+.favorite-icon a:hover,
+.home-icon a:hover {
+  color: var(--color3);
 }
 
 p.main-description {
@@ -82,7 +107,7 @@ form button {
 }
 
 div#results {
-  margin-top: 50px;
+  margin-top: 75px;
   width: 100%;
   display: grid;
   grid-gap: 25px;
@@ -116,16 +141,39 @@ div.recipe-head {
   margin: 0.5rem;
 }
 
-div a.recipe-button {
+button.save-button {
+  background-color: var(--color1);
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px black;
+  font-size: 1rem;
+  text-align: center;
+}
+
+button.save-button:hover {
+  background-color: var(--color4);
+  cursor: pointer;
+}
+
+div.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-button {
   text-decoration: none;
   text-align: center;
-  width: auto;
-  padding: 8px;
-  font-size: 1.1rem;
+  padding: 5px;
+  font-size: 1rem;
   color: black;
   background-color: var(--color1);
-  border: solid 1px rgb(49, 49, 49);
+  border: solid 1px black;
   border-radius: 5px;
+}
+
+.recipe-button:hover {
+  background-color: var(--color4);
 }
 
 div p.recipe-info {

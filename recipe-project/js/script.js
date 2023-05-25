@@ -39,13 +39,16 @@ function displayRecipes(data) {
     <div class="recipe-card">
       <div class="recipe-head">
       <h2 class="title">${recipe.label}</h2>
-      <a class="recipe-button" href="${recipe.url}" target="_blank">View Recipe</a>
+      <button class="save-button">Save</button>
       </div>
       <img src="${recipe.image}" alt="image of ${recipe.label}"/>
-      <!--<p>Ingredients ${recipe.ingredientLines}</p>--> 
+      <div class="info-container">
       <p class="recipe-info">Calories: ${recipe.calories.toFixed(0)} kcals</p>
+      <a class="recipe-button" href="${recipe.url}" target="_blank">View Recipe</a>
+      </div>
       <p class="recipe-info">Diet Label: ${recipe.dietLabels.length > 0 ? recipe.dietLabels : "None"}</p>
       <p class="recipe-info">Heath Label: ${recipe.healthLabels}</p>
+      <!--<p>Ingredients ${recipe.ingredientLines}</p>--> 
     </div>
     `;
     return (resultsDiv.innerHTML = cardHTML);
@@ -55,3 +58,16 @@ function displayRecipes(data) {
 document
   .querySelector("#searchButton")
   .addEventListener("click", searchRecipes);
+
+function getLocalStorage() {
+  const storedData = localStorage.getItem("recipes");
+  if (storedData) {
+    displayRecipes(JSON.parse(storedData));
+  }
+}
+
+function setLocalStorage() {
+  localStorage.setItem("recipes", JSON.stringify(recipes));
+}
+
+
