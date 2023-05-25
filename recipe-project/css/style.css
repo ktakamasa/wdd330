@@ -1,101 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    /* border: 1px dashed red; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px dashed red; */
 }
 
 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 html {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 main {
-    min-height: 100vh;
-    width: 100%;
-    display :flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 0;
-    /* background-color:; */
+  min-height: 98vh;
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  padding: 50px 0;
+  /* background-color:; */
 }
 
 div.container {
-    width: 90%;
-    max-width: 1200px; 
-    height: auto;
-    margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
 }
 
 h1.main-heading {
-    text-align: center;
-    font-size: 3rem;
-    /* color: ; */
-    margin-bottom: 1rem;
+  text-align: center;
+  font-size: 3rem;
+  /* color: ; */
+  margin-bottom: 1rem;
 }
 
 p.main-description {
-    text-align: center;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 form {
-    width: 90%;
-    max-width: 400px;
-    margin: 20px auto;
-    /* background-color: ; */
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  /* background-color: ; */
 }
 form input {
-    width: 80%;
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
-    /* border: none; */
-    /* outline: none; */
-    font-size: 1.25rem;
-    display: inline-block
+  width: 80%;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 5px;
+  /* border: none; */
+  /* outline: none; */
+  font-size: 1.25rem;
+  display: inline-block;
 }
 
 form button {
-    width: 19%;
-    padding: 8px;
-    font-size: 1.25rem;
+  width: auto;
+  padding: 8px;
+  font-size: 1.25rem;
 }
 
 div#results {
-    margin-top:  50px;
-    width: 100%;
-    display: grid;
-    grid-gap: 25px;
-    grid-template: auto /repeat(auto-fit, minmax(300px,1fr));
+  margin-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-gap: 25px;
+  grid-template: auto / repeat(auto-fit, minmax(300px, 1fr));
 }
 div.recipe-card {
-    width: 100%;
-    /* border-radius: ; */
-    /* background-color: ; */
-    padding: 1rem;
-    overflow: hidden;
+  width: 100%;
+  /* border-radius: ; */
+  /* background-color: ; */
+  padding: 1rem;
+  overflow: hidden;
 }
 
 .recipe-card img {
-    width: 100%;
-    height: 300px;
-    border-radius: 5px;
-
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
 }
 
 footer {
-    margin: 0 0 10px 10px;
+  margin: 0 0 1rem 1rem;
 }
 
-
+footer a,
+footer a::after {
+  text-decoration: none;
+  color: black;
+}
