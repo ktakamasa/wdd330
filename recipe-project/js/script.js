@@ -14,6 +14,9 @@ async function searchRecipes(event) {
 
       if (res.ok) {
         const data = await res.json();
+        if (data.count == 0) {
+          window.alert("Food or meal not found!");
+        }
         console.log(data);
         displayRecipes(data);
       } else {
@@ -34,12 +37,18 @@ function displayRecipes(data) {
     const recipe = hit.recipe;
     cardHTML += `
     <div class="recipe-card">
+      <div class="recipe-head">
       <h2 class="title">${recipe.label}</h2>
-      <img src="${recipe.image}"/>
-      <p>Ingredients ${recipe.ingredientLines}</p>
+      <a class="recipe-button" href="${recipe.url}" target="_blank">View Recipe</a>
+      </div>
+      <img src="${recipe.image}" alt="image of ${recipe.label}"/>
+      <!--<p>Ingredients ${recipe.ingredientLines}</p>--> 
+      <p class="recipe-info">Calories: ${recipe.calories.toFixed(0)} kcals</p>
+      <p class="recipe-info">Diet Label: ${recipe.dietLabels.length > 0 ? recipe.dietLabels : "None"}</p>
+      <p class="recipe-info">Heath Label: ${recipe.healthLabels}</p>
     </div>
     `;
-    return resultsDiv.innerHTML = cardHTML;
+    return (resultsDiv.innerHTML = cardHTML);
   });
 }
 
