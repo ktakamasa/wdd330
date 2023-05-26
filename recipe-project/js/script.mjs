@@ -1,3 +1,5 @@
+import { getLocalStorage, setLocalStorage } from "./util.mjs";
+
 const myID = "df832e72";
 const myKey = "eb31090e4a9f0390cb3246ebcf8e06c7";
 
@@ -58,16 +60,3 @@ function displayRecipes(data) {
 document
   .querySelector("#searchButton")
   .addEventListener("click", searchRecipes);
-
-function getLocalStorage() {
-  const storedData = localStorage.getItem("recipes");
-  if (storedData) {
-    displayRecipes(JSON.parse(storedData));
-  }
-}
-
-function setLocalStorage() {
-  localStorage.setItem("recipes", JSON.stringify(recipes));
-}
-
-
