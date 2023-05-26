@@ -8,7 +8,7 @@ async function searchRecipes(event) {
 
   const searchInput = document.querySelector("#searchInput").value;
   try {
-    if (searchInput == "") {
+    if (searchInput === "") {
       window.alert("Please enter a food or meal");
     } else {
       const url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${myID}&app_key=${myKey}&q=${searchInput}`;
@@ -20,6 +20,7 @@ async function searchRecipes(event) {
           window.alert("Food or meal not found!");
         }
         console.log(data);
+        currentPage = 1;
         displayRecipes(data);
       } else {
         throw Error(await res.text());
@@ -29,6 +30,10 @@ async function searchRecipes(event) {
     console.log(err);
   }
 }
+
+let currentPage = 1;
+let totalPages = 1;
+let nextPageUrl = "";
 
 function displayRecipes(data) {
   const resultsDiv = document.querySelector("#results");
@@ -46,17 +51,43 @@ function displayRecipes(data) {
       <img src="${recipe.image}" alt="image of ${recipe.label}"/>
       <div class="info-container">
       <p class="recipe-info">Calories: ${recipe.calories.toFixed(0)} kcals</p>
-      <a class="recipe-button" href="${recipe.url}" target="_blank">View Recipe</a>
+      <a class="recipe-button" href="${
+        recipe.url
+      }" target="_blank">View Recipe</a>
       </div>
-      <p class="recipe-info">Diet Label: ${recipe.dietLabels.length > 0 ? recipe.dietLabels : "None"}</p>
+      <p class="recipe-info">Diet Label: ${
+        recipe.dietLabels.length > 0 ? recipe.dietLabels : "None"
+      }</p>
       <p class="recipe-info">Heath Label: ${recipe.healthLabels}</p>
       <!--<p>Ingredients ${recipe.ingredientLines}</p>--> 
     </div>
     `;
-    return (resultsDiv.innerHTML = cardHTML);
+  });
+
+  resultsDiv.innerHTML = cardHTML;
+
+  // Add event listeners to the save buttons
+  const saveButtons = document.querySelectorAll(".save-button");
+  saveButtons.forEach((button, index) => {
+    button.addEventListener("click", () => saveRecipe(data.hits[index].recipe));
   });
 }
 
 document
   .querySelector("#searchButton")
   .addEventListener("click", searchRecipes);
+
+function saveRecipe(recipe) {
+  const favorites = getLocalStorage("favorites");
+
+  // Check if the recipe already exists in favorites
+  const duplicate = favorites.some((favRecipe) => favRecipe.uri === recipe.uri);
+
+  if (duplicate) {
+    window.alert("This recipe is already saved!");
+  } else {
+    favorites.push(recipe);
+    setLocalStorage("favorites", favorites);
+    window.alert("Recipe saved!");
+  }
+}

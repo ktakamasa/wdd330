@@ -14,11 +14,11 @@
   /* border: 1px dashed red; */
 }
 
-img {
+/* img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */
 
 html {
   font-family: "Source Sans Pro", sans-serif;
@@ -120,6 +120,16 @@ div.recipe-card {
   transition: transform 0.5s;
 }
 
+div.recipe-card:first-child:nth-last-child(1) {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+h2.noRecipe {
+  text-align: center;
+}
+
 div.recipe-card img {
   width: 100%;
   height: 300px;
@@ -137,7 +147,8 @@ div.recipe-head {
   margin: 0.5rem;
 }
 
-button.save-button {
+button.save-button,
+button.remove-button {
   background-color: var(--color1);
   padding: 5px;
   border-radius: 5px;
@@ -146,7 +157,8 @@ button.save-button {
   text-align: center;
 }
 
-button.save-button:hover {
+button.save-button:hover,
+button.remove-button:hover {
   background-color: var(--color4);
   cursor: pointer;
 }
