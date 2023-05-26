@@ -31,10 +31,6 @@ async function searchRecipes(event) {
   }
 }
 
-let currentPage = 1;
-let totalPages = 1;
-let nextPageUrl = "";
-
 function displayRecipes(data) {
   const resultsDiv = document.querySelector("#results");
   resultsDiv.innerHTML = "";
