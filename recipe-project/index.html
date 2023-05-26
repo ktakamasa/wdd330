@@ -20,6 +20,22 @@
             <form id="searchForm">
                 <input id="searchInput" type="text" placeholder="Enter a food or meal..." name="search">
                 <button id="searchButton" type="submit">Search</button>
+                <div class="filter">
+                    <select id="dietFilter">
+                        <option value="">Diet Labels</option>
+                        <option value="balanced">Balanced</option>
+                        <option value="high-protein">High Protein</option>
+                        <option value="low-fat">Low-Fat</option>
+                        <option value="low-carb">Low-Carb</option>
+                    </select>
+                    <select id="healthFilter">
+                        <option value="">Health Labels</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="gluten-free">Gluten-Free</option>
+                        <option value="dairy-free">Dairy-Free</option>
+                    </select>
+                </div>
             </form>
 
             <div id="results"></div>

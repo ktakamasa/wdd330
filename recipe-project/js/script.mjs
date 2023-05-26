@@ -11,7 +11,15 @@ async function searchRecipes(event) {
     if (searchInput === "") {
       window.alert("Please enter a food or meal");
     } else {
-      const url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${myID}&app_key=${myKey}&q=${searchInput}`;
+      let url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${myID}&app_key=${myKey}&q=${searchInput}`;
+
+      if (selectedDiet !== "") {
+        url += `&diet=${selectedDiet}`;
+      }
+      if (selectedHealth !== "") {
+        url += `&health=${selectedHealth}`;
+      }
+
       const res = await fetch(url);
 
       if (res.ok) {
@@ -20,7 +28,6 @@ async function searchRecipes(event) {
           window.alert("Food or meal not found!");
         }
         console.log(data);
-        currentPage = 1;
         displayRecipes(data);
       } else {
         throw Error(await res.text());
@@ -87,3 +94,14 @@ function saveRecipe(recipe) {
     window.alert("Recipe saved!");
   }
 }
+
+let selectedDiet = ""; 
+let selectedHealth = ""; 
+const dietFilterSelect = document.querySelector("#dietFilter");
+dietFilterSelect.addEventListener("change", () => {
+  selectedDiet = dietFilterSelect.value;
+})
+const healthFilterSelect = document.querySelector("#healthFilter");
+dietFilterSelect.addEventListener("change", () => {
+  selectedHealth = healthFilterSelect.value;
+})
